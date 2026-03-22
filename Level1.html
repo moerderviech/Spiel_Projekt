@@ -1,4 +1,4 @@
-<!DOCTYPEhtml>
+<!DOCTYPE html>
 <html lang="de"> 
 <meta charset="UTF-8">
 
@@ -17,18 +17,24 @@
 /*Große Buttons*/
 .groß{padding: 20px 40px; font-size: 20px;}
 
+/*Design für die Buttons*/
+button{background: radial-gradient(circle, #9e1360 0%, #891a719e 10%, #74134598 100%);
+        color: rgb(0, 0, 0);
+        border: none;
+        border-radius: 20px;
+        transition: 0.3s ease, box-shadow 0.3s ease;}
+
 body {
 margin: 0;
 height: 100vh;
 background: linear-gradient(to right, #fffeff, #a4e1f1);
 overflow: hidden;
-/*cursor: none; /*normalen Cursor ausblenden */
 display: flex;
 justify-content: center;   /* horizontal zentrieren */
 align-items: center;       /* vertikal zentrieren */
 height: 100vh;             /* ganze Bildschirmhöhe */
 font-family: Aria l, sans-serif;
-            }
+        }
 
 </style>
 
@@ -36,7 +42,7 @@ font-family: Aria l, sans-serif;
 
 <body>
 
-<h2>Finde den richtigen Button!</h2>
+<h1 style="border: 2px solid black; padding: 15px;">Finde den richtigen Button!</h1>
 
 <!--Jeder Button bekommt eine individuelle Position und Größe (klein, mittel, groß)-->
 <button style="position:absolute; bottom:50px; left:700px; padding:10px 20px;"
@@ -49,10 +55,10 @@ class="mittel">weiter</button>
 class="groß">weiter</button>
 
 <button style="position:absolute; bottom:200px; left:650px; padding:10px 20px;"
-class="mittel">ich bin's</button>
+class="mittel">weiter</button>
 
 <button style="position:absolute; bottom:250px; left:20px; padding:10px 20px;"
-class="klein">nein ich!</button>
+class="klein">weiter</button>
 
 <button style="position:absolute; bottom:300px; left:450px; padding:10px 20px;"
 class="mittel">weiter</button>
@@ -69,7 +75,7 @@ class="klein">weiter</button>
 <button style="position:absolute; bottom:500px; left:850px; padding:10px 20px;"
 class="mittel">weiter</button> 
 
-<button style="position:absolute; bottom:550px; left:700px; padding:10px 20px;"
+<button style="position:absolute; bottom:550px; left:750px; padding:10px 20px;"
 class="groß">weiter</button> 
 
 <button style="position:absolute; bottom:600px; left:950px; padding:10px 20px;"
@@ -93,19 +99,19 @@ class="klein">weiter</button>
 <button style="position:absolute; bottom:175px; left:1000px; padding:10px 20px;"
 class="mittel">weiter</button> 
 
-<button style="position:absolute; bottom:225px; left:1400px; padding:10px 20px;"
+<button style="position:absolute; bottom:225px; left:300px; padding:10px 20px;"
 class="groß">weiter</button> 
 
 <button style="position:absolute; bottom:275px; left:850px; padding:10px 20px;"
 class="mittel">weiter</button> 
 
 <button style="position:absolute; bottom:325px; left:1050px; padding:10px 20px;"
-class="klein">weiter</button> 
+class="klein" onclick="alert(Falsch)">weiter</button> 
 
 <button style="position:absolute; bottom:375px; left:250px; padding:10px 20px;"
 class="mittel">weiter</button> 
 
-<button style="position:absolute; bottom:425px; left:900px; padding:10px 20px;"
+<button style="position:absolute; bottom:425px; left:1400px; padding:10px 20px;"
 class="groß">weiter</button> 
 
 <button style="position:absolute; bottom:475px; left:300px; padding:10px 20px;"
