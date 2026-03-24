@@ -18,77 +18,98 @@
 .groß{padding: 20px 40px; font-size: 20px;}
 
 /*Design für die Buttons*/
-button{background: radial-gradient(circle, #9e1360 0%, #891a719e 10%, #74134598 100%);
-        color: rgb(0, 0, 0);
-        border: none;
-        border-radius: 20px;
-        transition: 0.3s ease, box-shadow 0.3s ease;}
-
-body {
-margin: 0;
-height: 100vh;
-background: linear-gradient(to right, #fffeff, #a4e1f1);
-overflow: hidden;
-display: flex;
-justify-content: center;   /* horizontal zentrieren */
-align-items: center;       /* vertikal zentrieren */
-height: 100vh;             /* ganze Bildschirmhöhe */
-font-family: Aria l, sans-serif;
-        }
 
 </style>
+
+
+
+<!--Style von der Fehlermeldung festlegen-->
+<style>
+.container {
+  position: absolute;
+  bottom: 325px;
+  left: 1050px;
+  text-align: center;
+}
+
+.meldung {
+  display: none;
+  color: red;
+  margin-bottom: 10px;
+}
+</style>
+
+<script>
+function falsch() {
+  let m = document.getElementById("meldung");
+
+  m.innerText = "Falsch!";
+  m.style.display = "block";
+
+  setTimeout(() => {
+    m.style.display = "none";
+  }, 2000);
+}
+</script>
 
 </head>
 
 <body>
 
-<h1 style="border: 2px solid black; padding: 15px;">Finde den richtigen Button!</h1>
+<!--Class für die Fehlermeldung-->
+<div class="container">
+<p id="meldung" class="meldung"></p>
+</div>
+
+<br> <br>
+<center><h1 style="border: 2px solid black; padding: 10px; margin: 5px; width: 500px;">Finde den richtigen Button!</h1></center>
+
 
 <!--Jeder Button bekommt eine individuelle Position und Größe (klein, mittel, groß)-->
 <button style="position:absolute; bottom:50px; left:700px; padding:10px 20px;"
-class="klein">weiter</button>
+class="klein meldung" onclick="falsch()">weiter</button>
 
 <button style="position:absolute; bottom:100px; left:850px; padding:10px 20px;"
-class="mittel">weiter</button>
+class="mittel" onclick="falsch()">weiter</button>
 
 <button style="position:absolute; bottom:150px; left:500px; padding:10px 20px;"
-class="groß">weiter</button>
+class="groß" onclick="falsch()">weiter</button>
 
 <button style="position:absolute; bottom:200px; left:650px; padding:10px 20px;"
-class="mittel">weiter</button>
+class="mittel" onclick="falsch()">weiter</button>
 
 <button style="position:absolute; bottom:250px; left:20px; padding:10px 20px;"
-class="klein">weiter</button>
+class="klein" onclick="falsch()">weiter</button>
 
 <button style="position:absolute; bottom:300px; left:450px; padding:10px 20px;"
-class="mittel">weiter</button>
+class="mittel" onclick="falsch()">weiter</button>
 
 <button style="position:absolute; bottom:350px; left:50px; padding:10px 20px;"
-class="groß">weiter</button> 
+class="groß" onclick="falsch()">weiter</button> 
 
 <button style="position:absolute; bottom:400px; left:450px; padding:10px 20px;"
-class="mittel">weiter</button> 
+class="mittel" onclick="falsch()">weiter</button> 
 
 <button style="position:absolute; bottom:450px; left:3500px; padding:10px 20px;"
-class="klein">weiter</button> 
+class="klein" onclick="falsch()">weiter</button> 
 
 <button style="position:absolute; bottom:500px; left:850px; padding:10px 20px;"
-class="mittel">weiter</button> 
+class="mittel" onclick="falsch()">weiter</button> 
 
 <button style="position:absolute; bottom:550px; left:750px; padding:10px 20px;"
-class="groß">weiter</button> 
+class="groß" onclick="falsch()">weiter</button> 
 
 <button style="position:absolute; bottom:600px; left:950px; padding:10px 20px;"
-class="mittel">weiter</button> 
+class="mittel" onclick="falsch()">weiter</button> 
 
 <button style="position:absolute; bottom:650px; left:400px; padding:10px 20px;"
-class="klein">weiter</button> 
+class="klein" onclick="falsch()">weiter</button> 
 
 <button style="position:absolute; bottom:700px; left:1100px; padding:10px 20px;"
-class="mittel">weiter</button> 
+class="mittel" onclick="falsch()">weiter</button> 
 
 <button style="position:absolute; bottom:750px; left:250px; padding:10px 20px;"
-class="groß">weiter</button> 
+class="groß" onclick="falsch()">weiter</button> 
 
 <button style="position:absolute; bottom:75px; left:550px; padding:10px 20px;"
 class="mittel">weiter</button> 
@@ -106,7 +127,7 @@ class="groß">weiter</button>
 class="mittel">weiter</button> 
 
 <button style="position:absolute; bottom:325px; left:1050px; padding:10px 20px;"
-class="klein" onclick="alert(Falsch)">weiter</button> 
+class="klein">weiter</button> 
 
 <button style="position:absolute; bottom:375px; left:250px; padding:10px 20px;"
 class="mittel">weiter</button> 
@@ -129,8 +150,9 @@ class="groß">weiter</button>
 <button style="position:absolute; bottom:675px; left:50px; padding:10px 20px;"
 class="mittel">weiter</button> 
 
+<!--Button mit Route-->
 <button style="position:absolute; bottom:725px; left:200px; padding:10px 20px;" 
-class="klein">weiter</button> 
+class="klein" href="">weiter</button> 
 
 </body>
 
