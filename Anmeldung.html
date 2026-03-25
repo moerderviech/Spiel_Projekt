@@ -1,124 +1,142 @@
 <!DOCTYPE html>
 <html lang="de">
-<meta charset="UTF-8">
-
 <head>
-    <title>Spiel</title>
+<meta charset="UTF-8">
+<title>Spiel</title>
 
-<!--Hier kommt der CSS-Code rein für unser Desgign:-->
-    <style> 
-    
-        @font-face {
-            font-family: 'TastyCheese';
-            src: url('fonts/tastycheese-bitmaps.otf') format('opentype');
-            }
+<style>
 
-         @font-face {
-            font-family: 'NewCheese';
-            src: url('fonts/New Cheese Font/NewCheese.otf') format('opentype');
-            }
+/* Schriftarten */
+@font-face {
+  font-family: 'TastyCheese';
+  src: url('fonts/tastycheese-bitmaps.otf') format('opentype');
+}
 
-        body {
-            margin: 0;
-            height: 100vh;
-            background: linear-gradient(to right, #000000, #24153e);
-            overflow: hidden;
-            /*cursor: none; /*normalen Cursor ausblenden */
-            display: flex;
-            justify-content: center;   /* horizontal zentrieren */
-            align-items: center;       /* vertikal zentrieren */
-            height: 100vh;             /* ganze Bildschirmhöhe */
-            font-family: Aria l, sans-serif;
-            }
-        .container {
-            
-            text-align: center;
-            display: block;
-            width: 100%;
-            height: 100vh;
-            background: radial-gradient(circle at center, 
-            rgba(255,255,200,0.9) 0%, 
-            rgba(255,255,200,0.4) 20%, 
-            rgba(0,0,0,0.9) 70%);
-            background-color:hsla(0, 0%, 100%, 0.068);        
-            /*border: 2px solid rgb(218, 200, 245);  */
-            padding: 40px;
-            border-radius: 10px;    
-            box-shadow: 0 15px 30px rgb(255, 255, 255); 
-            }   
+@font-face {
+  font-family: 'NewCheese';
+  src: url('fonts/New Cheese Font/NewCheese.otf') format('opentype');
+}
 
-          .cheese-button {
-    position: relative;
-    background: linear-gradient(145deg, #ffd84d, #ffcc00);
-    border: none;
-    padding: 20px 50px;
-    font-size: 20px;
-    font-weight: bold;
-    color: #5a4a00;
-    border-radius: 20px;
-    cursor: pointer;
-    overflow: hidden; /* wichtig für layering */
-  }
+/* Body */
+body {
+  margin: 0;
+  height: 100vh;
+  background: linear-gradient(to right, #000000, #24153e);
+  overflow: visible;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  font-family: Arial, sans-serif;
+}
 
-  /* Text nach vorne */
-  .cheese-text {
-    position: relative;
-    z-index: 2;
-  }
+/* Container */
+.container {
+  text-align: center;
+  width: 100%;
+  height: 100vh;
+  background: radial-gradient(circle at center, 
+    rgba(255,255,200,0.9) 0%, 
+    rgba(255,255,200,0.4) 20%, 
+    rgba(0,0,0,0.9) 70%);
+  background-color: hsla(0, 0%, 100%, 0.068);        
+  padding: 40px;
+  border-radius: 10px;    
+  box-shadow: 0 15px 30px rgb(255, 255, 255); 
+}
 
-  /* Käselöcher nach hinten */
-  .cheese-button::before,
-  .cheese-button::after,
-  .hole {
-    z-index: 1;
-  }
+/* LOGIN Titel */
+h2 {
+  font-family: 'TastyCheese';
+  letter-spacing: -1px;
+  font-weight: bold;
+  font-size: 60px;
+  transform: scale(1.8);
+  position: absolute;
+  top: 210px;
+  right: 748px;
+}
 
-  .cheese-button::before,
-  .cheese-button::after {
-    content: "";
-    position: absolute;
-    background: #e6b800;
-    border-radius: 50%;
-    box-shadow: inset 2px 2px 5px rgba(0,0,0,0.2);
-  }
+/* Login Felder Container */
+.login-fields {
+  position: absolute;
+  top: 375px;
+  right: 684px;
 
-  .cheese-button::before {
-    width: 25px;
-    height: 25px;
-    top: 10px;
-    left: 20px;
-  }
+  display: flex;
+  flex-direction: column;
+  gap: 40px; /* Abstand */
+}
 
-  .cheese-button::after {
-    width: 15px;
-    height: 15px;
-    bottom: 10px;
-    right: 25px;
-  }
+/* Label + Input */
+.form-group {
+  display: flex;
+  align-items: center;
+  gap: 20px;
+}
 
-  .hole {
-    position: absolute;
-    background: #e6b800;
-    border-radius: 50%;
-    box-shadow: inset 2px 2px 5px rgba(0,0,0,0.2);
-  }
+label {
+  font-family: 'NewCheese';
+  color: #5a4a00;
+  width: 140px;
+}
 
-  .hole1 {
-    width: 18px;
-    height: 18px;
-    top: 50%;
-    left: 40%;
-    transform: translate(-50%, -50%);
-  }
+/* Käse Input */
+.cheese-input {
+  background: linear-gradient(145deg, #ffd84d, #ffcc00);
+  border: none;
+  border-radius: 15px;
+  padding: 10px 15px;
+  color: #5a4a00;
+  font-weight: bold;
+  width: 100px;
+  box-shadow: inset -3px -3px 6px rgba(255,255,255,0.4),
+              inset 3px 3px 6px rgba(0,0,0,0.2);
+}
 
-  .hole2 {
-    width: 12px;
-    height: 12px;
-    top: 30%;
-    right: 20%;
-  }
+.cheese-input::placeholder {
+  color: #8a6f00;
+}
 
-  /* Hover Effekt */
+/* Käselöcher */
+.input-wrapper {
+  position: relative;
+}
+
+.input-wrapper::before {
+  content: "";
+  position: absolute;
+  width: 12px;
+  height: 12px;
+  background: #e6b800;
+  border-radius: 50%;
+  top: 5px;
+  right: 10px;
+}
+
+/* Käse Button */
+.cheese-button {
+  position: absolute;
+  top: 550px;
+  right: 675px;
+
+  background: linear-gradient(145deg, #ffd84d, #ffcc00);
+  border: none;
+  padding: 20px 50px;
+  font-size: 20px;
+  font-family: 'NewCheese';
+  font-weight: bold;
+  color: #5a4a00;
+  border-radius: 20px;
+  cursor: pointer;
+  overflow: hidden;
+}
+
+.cheese-text {
+  position: relative;
+  z-index: 2;
+}
+
+/* Hover Effekt */
   .cheese-button:hover {
     transform: scale(1.05) rotate(-1deg);
   }
@@ -128,67 +146,76 @@
     box-shadow: inset 5px 5px 10px rgba(0,0,0,0.3);
   }
 
+.cheese-button::before,
+.cheese-button::after {
+  content: "";
+  position: absolute;
+  background: #e6b800;
+  border-radius: 50%;
+}
 
-    </style>
-    
+.cheese-button::before {
+  width: 20px;
+  height: 20px;
+  top: 10px;
+  left: 20px;
+}
+
+.cheese-button::after {
+  width: 15px;
+  height: 15px;
+  bottom: 10px;
+  right: 25px;
+}
+
+/* Link */
+a {
+    font-family: 'NewCheese';
+  font-size: 13px;
+  position: absolute;
+  top: 594px;
+  right: 885px;
+  color: rgb(167, 124, 22);
+  z-index: 10;
+}
+
+</style>
 </head>
 
 <body>
-     <img 
-        src="ratte.png"
-         alt="Sticker" 
-         style="
-            position: absolute;
-            top: 70px;
-            right: 210px;
-            width: 800px;
-    ">
-    <div class="container">
-    <h2 
-    style="font-family: 'TastyCheese'; 
-    letter-spacing: -1px; 
-    font-weight: bold;
-    font-size: 55px;
-    transform: scale(1.8, 1.8);
-    text-shadow: rgb(0, 0, 0);
-    position: absolute;
-            top: 220px;
-            right: 755px;"> LOGIN:
-     </h2>
-     
-     <p
-     style="
-     font-family: 'NewCheese';
-     color: #5a4a00;
-     position: absolute;
-            top: 360px;
-            right: 684px;">
-        Benutzername: <input></input>
-     </p>
-     <p
-     style="
-      font-family: 'NewCheese';
-      color: #5a4a00;
-      position: absolute;
-        top: 420px;
-        right: 684px;">
-        Passwort: <input>
-     </p>
-     <a 
-     style="font-family: 'NewCheese';
-     font-size: 13px;
-     position: absolute;
-            top: 554px;
-            right: 885px;"
-     href="Registrierung.html">Registrieren</a>
 
-    <button class="cheese-button"
-    style="position: absolute;
-    font-family: 'NewCheese';
-            top: 510px;
-            right: 675px;">
-    <span class="cheese-text">Weiter</span>
-    <span class="hole hole1"></span>
-    <span class="hole hole2"></span>
+<img src="ratte.png" alt="Sticker"
+  style="position: absolute; top: 70px; right: 210px; width: 800px;">
+
+<div class="container">
+
+  <h2>LOGIN:</h2>
+
+  <div class="login-fields">
+
+    <div class="form-group">
+      <label>Benutzername:</label>
+      <div class="input-wrapper">
+        <input class="cheese-input" type="text" placeholder="Name">
+      </div>
     </div>
+
+    <div class="form-group">
+      <label>Passwort:</label>
+      <div class="input-wrapper">
+        <input class="cheese-input" type="password" placeholder="Passwort">
+      </div>
+    </div>
+
+  </div>
+
+  <a href="Registrierung.html">Registrieren</a>
+
+  <button class="cheese-button">
+    <span class="cheese-text">Weiter</span>
+  </button>
+
+</div>
+
 </body>
+</html>
