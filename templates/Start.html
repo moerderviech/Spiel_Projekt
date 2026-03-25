@@ -1,0 +1,144 @@
+<!DOCTYPE html>
+<html lang="de">
+<head>
+<meta charset="UTF-8">
+<title>Hauptmenü</title>
+
+<style>
+@font-face {
+  font-family: 'TastyCheese';
+  src: url('fonts/tastycheese-bitmaps.otf') format('opentype');
+}
+@font-face {
+  font-family: 'NewCheese';
+  src: url('fonts/New Cheese Font/NewCheese.otf') format('opentype');
+}
+
+body {
+  margin: 0;
+  height: 100vh;
+  background: linear-gradient(to right, #000000, #24153e);
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.container {
+  width: 100%;
+  height: 100vh;
+  text-align: center;
+  background: radial-gradient(circle at center, 
+    rgba(255,255,200,0.9) 0%, 
+    rgba(255,255,200,0.4) 20%, 
+    rgba(0,0,0,0.9) 70%);
+}
+
+/* Titel */
+h1 {
+  font-family: 'TastyCheese';
+  font-size: 70px;
+  transform: scale(1.5);
+  position: absolute;
+  top: 150px;
+  left: 50%;
+  transform: translateX(-50%) scale(1.5);
+}
+
+/* Buttons Container */
+.menu {
+  position: absolute;
+  top: 350px;
+  left: 50%;
+  transform: translateX(-50%);
+  display: flex;
+  flex-direction: column;
+  gap: 25px;
+}
+
+/* Cheese Button */
+.cheese-button {
+  background: linear-gradient(145deg, #ffd84d, #ffcc00);
+  border: none;
+  padding: 15px 50px;
+  font-size: 20px;
+  font-family: 'NewCheese';
+  font-weight: bold;
+  color: #5a4a00;
+  border-radius: 20px;
+  cursor: pointer;
+  position: relative;
+  overflow: hidden;
+}
+
+.cheese-button:hover {
+  transform: scale(1.05);
+}
+
+.cheese-button:active {
+  transform: scale(0.95);
+}
+
+/* Käselöcher */
+.cheese-button::before,
+.cheese-button::after {
+  content: "";
+  position: absolute;
+  background: #e6b800;
+  border-radius: 50%;
+}
+
+.cheese-button::before {
+  width: 20px;
+  height: 20px;
+  top: 8px;
+  left: 15px;
+}
+
+.cheese-button::after {
+  width: 12px;
+  height: 12px;
+  bottom: 8px;
+  right: 15px;
+}
+
+</style>
+</head>
+
+<body>
+
+<div class="container">
+
+<h1>CHEESE GAME 🧀</h1>
+
+<div class="menu">
+
+<button class="cheese-button" onclick="window.location.href='/level1'">
+Level 1
+</button>
+
+<button class="cheese-button" onclick="window.location.href='/level2'">
+Level 2
+</button>
+
+<button class="cheese-button" onclick="window.location.href='/level3'">
+Level 3
+</button>
+
+<button class="cheese-button" onclick="window.location.href='/level4'">
+Level 4
+</button>
+
+<button class="cheese-button" onclick="window.location.href='/anmeldung'">
+Login
+</button>
+
+<button class="cheese-button" onclick="window.location.href='/registrieren'">
+Registrieren
+</button>
+
+</div>
+
+</div>
+
+</body>
+</html>
