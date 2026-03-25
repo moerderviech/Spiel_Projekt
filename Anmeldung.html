@@ -26,13 +26,20 @@
             font-family: Aria l, sans-serif;
             }
         .container {
+            
             text-align: center;
             display: block;
-            background-color:hsla(0, 0%, 100%, 0);        
-            border: 2px solid rgb(218, 200, 245);  
+            width: 100%;
+            height: 100vh;
+            background: radial-gradient(circle at center, 
+            rgba(255,255,200,0.9) 0%, 
+            rgba(255,255,200,0.4) 20%, 
+            rgba(0,0,0,0.9) 70%);
+            background-color:hsla(0, 0%, 100%, 0.068);        
+            /*border: 2px solid rgb(218, 200, 245);  */
             padding: 40px;
-            border-radius: 10px;      
-            box-shadow: 0 8px 20px rgb(255, 255, 255); 
+            border-radius: 10px;    
+            box-shadow: 0 15px 30px rgb(255, 255, 255); 
             }   
 
         button {
@@ -50,6 +57,15 @@
 </head>
 
 <body>
+     <img 
+        src="ratte.png"
+         alt="Sticker" 
+         style="
+            position: absolute;
+            top: 100px;
+            right: 50px;
+            width: 600px;
+    ">
     <div class="container">
     <h2 
     style="font-family: 'TastyCheese', Arial, sans-serif; letter-spacing: -1px; font-weight: bold;font-size: 40px;transform: scale(1.8, 1.8);text-shadow: rgb(0, 0, 0);"> melde dich an:
