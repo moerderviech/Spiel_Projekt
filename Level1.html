@@ -1,151 +1,28 @@
 <!DOCTYPE html>
 <html lang="de"> 
-<meta charset="UTF-8">
-
 <head>
-
+<meta charset="UTF-8">
 <title>Level 1</title>
 
-<!--Verschiedene Größen für die Buttons festlegen-->
-<style> 
-@font-face {
-            font-family: 'TastyCheese';
-            src: url('fonts/tastycheese-bitmaps.otf') format('opentype');
-            }
-
-         @font-face {
-            font-family: 'NewCheese';
-            src: url('fonts/New Cheese Font/NewCheese.otf') format('opentype');
-            }
-/*Kleine Buttons*/
-.klein{padding: 5px 10px; font-size: 12px;}
-
-/*Mittlere Buttons*/
-.mittel{padding: 10px 20px; font-size: 16px;}
-
-/*Große Buttons*/
-.groß{padding: 20px 40px; font-size: 20px;}
-
-<<<<<<< HEAD
-/*Design für die Buttons*/
-=======
-body {
-margin: 0;
-height: 100vh;
- background: radial-gradient(circle at center, 
-            rgba(255,255,200,0.9) 0%, 
-            rgba(255,255,200,0.4) 20%, 
-            rgba(0,0,0,0.9) 70%);
-            background-color:hsla(0, 0%, 100%, 0.068);
-overflow: hidden;
-/*cursor: none; /*normalen Cursor ausblenden */
-display: flex;
-justify-content: center;   /* horizontal zentrieren */
-align-items: center;       /* vertikal zentrieren */
-height: 100vh;             /* ganze Bildschirmhöhe */
-font-family: Aria l, sans-serif;
-            }
->>>>>>> main
-
-     .cheese-button {
-    position: relative;
-    background: linear-gradient(145deg, #ffd84d, #ffcc00);
-    border: none;
-    font-weight: bold;
-    color: #5a4a00;
-    box-shadow: #090909;
-    border-radius: 20px;
-    cursor: pointer;
-    overflow: hidden; /* wichtig für layering */
-  }
-
-  /* Text nach vorne */
-  .cheese-text {
-    position: relative;
-    z-index: 2;
-  }
-
-  /* Käselöcher nach hinten */
-  .cheese-button::before,
-  .cheese-button::after,
-  .hole {
-    z-index: 1;
-  }
-
-  .cheese-button::before,
-  .cheese-button::after {
-    content: "";
-    position: absolute;
-    background: #e6b800;
-    border-radius: 50%;
-    box-shadow: inset 2px 2px 5px rgba(0,0,0,0.2);
-  }
-
-  .cheese-button::before {
-    width: 25px;
-    height: 25px;
-    top: 10px;
-    left: 20px;
-  }
-
-  .cheese-button::after {
-    width: 15px;
-    height: 15px;
-    bottom: 10px;
-    right: 25px;
-  }
-
-  .hole {
-    position: absolute;
-    background: #e6b800;
-    border-radius: 50%;
-    box-shadow: inset 2px 2px 5px rgba(0,0,0,0.2);
-  }
-
-  .hole1 {
-    width: 18px;
-    height: 18px;
-    top: 50%;
-    left: 40%;
-    transform: translate(-50%, -50%);
-  }
-
-  .hole2 {
-    width: 12px;
-    height: 12px;
-    top: 30%;
-    right: 20%;
-  }
-
-  /* Hover Effekt */
-  .cheese-button:hover {
-    transform: scale(1.05) rotate(-1deg);
-  }
-
-  .cheese-button:active {
-    transform: scale(0.95);
-    box-shadow: inset 5px 5px 10px rgba(0,0,0,0.3);
-  }
-
-
-
-</style>
-
-
-
-<!--Style von der Fehlermeldung festlegen-->
 <style>
+body {
+  margin: 0;
+  height: 100vh;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+/* Fehlermeldung */
 .container {
   position: absolute;
   bottom: 325px;
   left: 1050px;
-  text-align: center;
 }
 
 .meldung {
   display: none;
   color: red;
-  margin-bottom: 10px;
 }
 </style>
 
@@ -166,133 +43,30 @@ function falsch() {
 
 <body>
 
-<<<<<<< HEAD
-<!--Class für die Fehlermeldung-->
 <div class="container">
-<p id="meldung" class="meldung"></p>
+  <p id="meldung" class="meldung"></p>
 </div>
 
-<br> <br>
-<center><h1 style="border: 2px solid black; padding: 10px; margin: 5px; width: 500px;">Finde den richtigen Button!</h1></center>
+<h1>Finde den richtigen Button!</h1>
 
-<p id="meldung" class="meldung">
-  {{ fehler }}
-</p>
+<!-- Falsche Buttons -->
+<button onclick="falsch()" style="position:absolute; bottom:100px; left:200px;">
+  weiter
+</button>
 
-<!--Jeder Button bekommt eine individuelle Position und Größe (klein, mittel, groß)-->
-<button style="position:absolute; bottom:50px; left:700px; padding:10px 20px;"
-class="klein" onclick="window.location.href='/falsch'">weiter</button>
+<button onclick="falsch()" style="position:absolute; bottom:200px; left:400px;">
+  weiter
+</button>
 
-<button style="position:absolute; bottom:100px; left:850px; padding:10px 20px;"
-class="mittel" onclick="window.location.href='/falsch'">weiter</button>
-=======
-<h2
-style="font-family: 'TastyCheese';
-font-size: 40px;
- letter-spacing: -1px;
- transform: scale(1.8, 1.8);"
->Finde den richtigen Button!</h2>
+<button onclick="falsch()" style="position:absolute; bottom:300px; left:600px;">
+  weiter
+</button>
 
-<!--Jeder Button bekommt eine individuelle Position und Größe (klein, mittel, groß)-->
-<button class="cheese-button klein"
-    style="position:absolute; bottom:50px; left:700px;
-    font-family: 'NewCheese';">
-    <span class="cheese-text">Weiter</span>
-    <span class="hole hole1"></span>
-    <span class="hole hole2"></span>
-
-<button class="cheese-button mittel"
-    style="position:absolute; bottom:100px; left:850px; padding:10px 20px;
-    font-family: 'NewCheese';">
-    <span class="cheese-text">Weiter</span>
-    <span class="hole hole1"></span>
-    <span class="hole hole2"></span>
-
-
->>>>>>> main
-
-<button style="position:absolute; bottom:150px; left:500px; padding:10px 20px;"
-class="groß" onclick="window.location.href='/falsch'">weiter</button>
-
-<button style="position:absolute; bottom:200px; left:650px; padding:10px 20px;"
-class="mittel" onclick="window.location.href='/falsch'">weiter</button>
-
-<button style="position:absolute; bottom:250px; left:20px; padding:10px 20px;"
-class="klein" onclick="window.location.href='/falsch'">weiter</button>
-
-<button style="position:absolute; bottom:300px; left:450px; padding:10px 20px;"
-class="mittel" onclick="window.location.href='/falsch'">weiter</button>
-
-<button style="position:absolute; bottom:350px; left:50px; padding:10px 20px;"
-class="groß" onclick="window.location.href='/falsch'">weiter</button> 
-
-<button style="position:absolute; bottom:400px; left:450px; padding:10px 20px;"
-class="mittel" onclick="window.location.href='/falsch'">weiter</button> 
-
-<button style="position:absolute; bottom:450px; left:3500px; padding:10px 20px;"
-class="klein" onclick="window.location.href='/falsch'">weiter</button> 
-
-<button style="position:absolute; bottom:500px; left:850px; padding:10px 20px;"
-class="mittel" onclick="window.location.href='/falsch'">weiter</button> 
-
-<button style="position:absolute; bottom:550px; left:750px; padding:10px 20px;"
-class="groß" onclick="window.location.href='/falsch'">weiter</button> 
-
-<button style="position:absolute; bottom:600px; left:950px; padding:10px 20px;"
-class="mittel" onclick="window.location.href='/falsch'">weiter</button> 
-
-<button style="position:absolute; bottom:650px; left:400px; padding:10px 20px;"
-class="klein" onclick="window.location.href='/falsch'">weiter</button> 
-
-<button style="position:absolute; bottom:700px; left:1100px; padding:10px 20px;"
-class="mittel" onclick="window.location.href='/falsch'">weiter</button> 
-
-<button style="position:absolute; bottom:750px; left:250px; padding:10px 20px;"
-class="groß" onclick="window.location.href='/falsch'">weiter</button> 
-
-<button style="position:absolute; bottom:75px; left:550px; padding:10px 20px;"
-class="mittel" onclick="window.location.href='/falsch'">weiter</button> 
-
-<button style="position:absolute; bottom:125px; left:150px; padding:10px 20px;"
-class="klein" onclick="window.location.href='/falsch'">weiter</button> 
-
-<button style="position:absolute; bottom:175px; left:1000px; padding:10px 20px;"
-class="mittel" onclick="window.location.href='/falsch'">weiter</button> 
-
-<button style="position:absolute; bottom:225px; left:300px; padding:10px 20px;"
-class="groß" onclick="window.location.href='/falsch'">weiter</button> 
-
-<button style="position:absolute; bottom:275px; left:850px; padding:10px 20px;"
-class="mittel" onclick="window.location.href='/falsch'">weiter</button> 
-
-<button style="position:absolute; bottom:325px; left:1050px; padding:10px 20px;"
-class="klein" onclick="window.location.href='/falsch'">weiter</button> 
-
-<button style="position:absolute; bottom:375px; left:250px; padding:10px 20px;"
-class="mittel" onclick="window.location.href='/falsch'">weiter</button> 
-
-<button style="position:absolute; bottom:425px; left:1400px; padding:10px 20px;"
-class="groß" onclick="window.location.href='/falsch'">weiter</button> 
-
-<button style="position:absolute; bottom:475px; left:300px; padding:10px 20px;"
-class="mittel" onclick="window.location.href='/falsch'">weiter</button> 
-
-<button style="position:absolute; bottom:525px; left:450px; padding:10px 20px;"
-class="klein" onclick="window.location.href='/falsch'">weiter</button> 
-
-<button style="position:absolute; bottom:575px; left:150px; padding:10px 20px;"
-class="mittel" onclick="window.location.href='/falsch'">weiter</button> 
-
-<button style="position:absolute; bottom:625px; left:650px; padding:10px 20px;"
-class="groß" onclick="window.location.href='/falsch'">weiter</button> 
-
-<button style="position:absolute; bottom:675px; left:50px; padding:10px 20px;"
-class="mittel" onclick="window.location.href='/falsch'">weiter</button> 
-
-<!--Button mit Route-->
-<button style="position:absolute; bottom:725px; left:200px; padding:10px 20px;" 
-class="klein" onclick="window.location.href='/richtig'">weiter</button> 
+<!-- Richtiger Button -->
+<button onclick="window.location.href='/richtig'" 
+style="position:absolute; bottom:400px; left:800px;">
+  weiter
+</button>
 
 </body>
-
 </html>

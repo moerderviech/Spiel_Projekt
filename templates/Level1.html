@@ -1,54 +1,48 @@
 <!DOCTYPE html>
 <html lang="de"> 
-<meta charset="UTF-8">
-
 <head>
-
+<meta charset="UTF-8">
 <title>Level 1</title>
 
-<!--Verschiedene Größen für die Buttons festlegen-->
-<style> 
-/*Kleine Buttons*/
-.klein{padding: 5px 10px; font-size: 12px;}
-
-/*Mittlere Buttons*/
-.mittel{padding: 10px 20px; font-size: 16px;}
-
-/*Große Buttons*/
-.groß{padding: 20px 40px; font-size: 20px;}
-
-/*Design für die Buttons*/
-
-</style>
-
-
-
-<!--Style von der Fehlermeldung festlegen-->
 <style>
-.container {
-  position: absolute;
-  bottom: 325px;
-  left: 1050px;
-  text-align: center;
+body {
+  margin: 0;
+  height: 100vh;
+  background: radial-gradient(circle at center, 
+    rgba(255,255,200,0.9) 0%, 
+    rgba(255,255,200,0.4) 20%, 
+    rgba(0,0,0,0.9) 70%);
+  overflow: hidden;
 }
 
-.meldung {
+/* Popup */
+#popup {
   display: none;
-  color: red;
-  margin-bottom: 10px;
+  position: fixed;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  background: white;
+  padding: 30px;
+  border: 3px solid black;
+  border-radius: 10px;
+  z-index: 1000;
+  text-align: center;
 }
 </style>
 
 <script>
 function falsch() {
-  let m = document.getElementById("meldung");
-
-  m.innerText = "Falsch!";
-  m.style.display = "block";
+  let p = document.getElementById("popup");
+  p.style.display = "block";
 
   setTimeout(() => {
-    m.style.display = "none";
-  }, 2000);
+    p.style.display = "none";
+  }, 1500);
+}
+
+function closePopup() {
+  document.getElementById("popup").style.display = "none";
 }
 </script>
 
@@ -56,109 +50,38 @@ function falsch() {
 
 <body>
 
-<!--Class für die Fehlermeldung-->
-<div class="container">
-<p id="meldung" class="meldung"></p>
+<h1 style="position:absolute; top:40px; left:50%; transform:translateX(-50%);">
+Finde den richtigen Button!
+</h1>
+
+<!-- Popup -->
+<div id="popup">
+  <p>Falsch!</p>
+  <button onclick="closePopup()">OK</button>
 </div>
 
-<br> <br>
-<center><h1 style="border: 2px solid black; padding: 10px; margin: 5px; width: 500px;">Finde den richtigen Button!</h1></center>
+<!-- Viele falsche Buttons -->
+<button onclick="falsch()" style="position:absolute; bottom:50px; left:100px;">weiter</button>
+<button onclick="falsch()" style="position:absolute; bottom:120px; left:300px;">weiter</button>
+<button onclick="falsch()" style="position:absolute; bottom:200px; left:500px;">weiter</button>
+<button onclick="falsch()" style="position:absolute; bottom:300px; left:700px;">weiter</button>
+<button onclick="falsch()" style="position:absolute; bottom:400px; left:900px;">weiter</button>
+<button onclick="falsch()" style="position:absolute; bottom:500px; left:200px;">weiter</button>
+<button onclick="falsch()" style="position:absolute; bottom:600px; left:400px;">weiter</button>
+<button onclick="falsch()" style="position:absolute; bottom:150px; left:800px;">weiter</button>
+<button onclick="falsch()" style="position:absolute; bottom:250px; left:100px;">weiter</button>
+<button onclick="falsch()" style="position:absolute; bottom:350px; left:300px;">weiter</button>
+<button onclick="falsch()" style="position:absolute; bottom:450px; left:600px;">weiter</button>
+<button onclick="falsch()" style="position:absolute; bottom:550px; left:850px;">weiter</button>
+<button onclick="falsch()" style="position:absolute; bottom:650px; left:150px;">weiter</button>
+<button onclick="falsch()" style="position:absolute; bottom:700px; left:500px;">weiter</button>
+<button onclick="falsch()" style="position:absolute; bottom:100px; left:1000px;">weiter</button>
 
-<p id="meldung" class="meldung">
-  {{ fehler }}
-</p>
-
-<!--Jeder Button bekommt eine individuelle Position und Größe (klein, mittel, groß)-->
-<button style="position:absolute; bottom:50px; left:700px; padding:10px 20px;"
-class="klein" onclick="window.location.href='/falsch'">weiter</button>
-
-<button style="position:absolute; bottom:100px; left:850px; padding:10px 20px;"
-class="mittel" onclick="window.location.href='/falsch'">weiter</button>
-
-<button style="position:absolute; bottom:150px; left:500px; padding:10px 20px;"
-class="groß" onclick="window.location.href='/falsch'">weiter</button>
-
-<button style="position:absolute; bottom:200px; left:650px; padding:10px 20px;"
-class="mittel" onclick="window.location.href='/falsch'">weiter</button>
-
-<button style="position:absolute; bottom:250px; left:20px; padding:10px 20px;"
-class="klein" onclick="window.location.href='/falsch'">weiter</button>
-
-<button style="position:absolute; bottom:300px; left:450px; padding:10px 20px;"
-class="mittel" onclick="window.location.href='/falsch'">weiter</button>
-
-<button style="position:absolute; bottom:350px; left:50px; padding:10px 20px;"
-class="groß" onclick="window.location.href='/falsch'">weiter</button> 
-
-<button style="position:absolute; bottom:400px; left:450px; padding:10px 20px;"
-class="mittel" onclick="window.location.href='/falsch'">weiter</button> 
-
-<button style="position:absolute; bottom:450px; left:3500px; padding:10px 20px;"
-class="klein" onclick="window.location.href='/falsch'">weiter</button> 
-
-<button style="position:absolute; bottom:500px; left:850px; padding:10px 20px;"
-class="mittel" onclick="window.location.href='/falsch'">weiter</button> 
-
-<button style="position:absolute; bottom:550px; left:750px; padding:10px 20px;"
-class="groß" onclick="window.location.href='/falsch'">weiter</button> 
-
-<button style="position:absolute; bottom:600px; left:950px; padding:10px 20px;"
-class="mittel" onclick="window.location.href='/falsch'">weiter</button> 
-
-<button style="position:absolute; bottom:650px; left:400px; padding:10px 20px;"
-class="klein" onclick="window.location.href='/falsch'">weiter</button> 
-
-<button style="position:absolute; bottom:700px; left:1100px; padding:10px 20px;"
-class="mittel" onclick="window.location.href='/falsch'">weiter</button> 
-
-<button style="position:absolute; bottom:750px; left:250px; padding:10px 20px;"
-class="groß" onclick="window.location.href='/falsch'">weiter</button> 
-
-<button style="position:absolute; bottom:75px; left:550px; padding:10px 20px;"
-class="mittel" onclick="window.location.href='/falsch'">weiter</button> 
-
-<button style="position:absolute; bottom:125px; left:150px; padding:10px 20px;"
-class="klein" onclick="window.location.href='/falsch'">weiter</button> 
-
-<button style="position:absolute; bottom:175px; left:1000px; padding:10px 20px;"
-class="mittel" onclick="window.location.href='/falsch'">weiter</button> 
-
-<button style="position:absolute; bottom:225px; left:300px; padding:10px 20px;"
-class="groß" onclick="window.location.href='/falsch'">weiter</button> 
-
-<button style="position:absolute; bottom:275px; left:850px; padding:10px 20px;"
-class="mittel" onclick="window.location.href='/falsch'">weiter</button> 
-
-<button style="position:absolute; bottom:325px; left:1050px; padding:10px 20px;"
-class="klein" onclick="window.location.href='/falsch'">weiter</button> 
-
-<button style="position:absolute; bottom:375px; left:250px; padding:10px 20px;"
-class="mittel" onclick="window.location.href='/falsch'">weiter</button> 
-
-<button style="position:absolute; bottom:425px; left:1400px; padding:10px 20px;"
-class="groß" onclick="window.location.href='/falsch'">weiter</button> 
-
-<button style="position:absolute; bottom:475px; left:300px; padding:10px 20px;"
-class="mittel" onclick="window.location.href='/falsch'">weiter</button> 
-
-<button style="position:absolute; bottom:525px; left:450px; padding:10px 20px;"
-class="klein" onclick="window.location.href='/falsch'">weiter</button> 
-
-<button style="position:absolute; bottom:575px; left:150px; padding:10px 20px;"
-class="mittel" onclick="window.location.href='/falsch'">weiter</button> 
-
-<button style="position:absolute; bottom:625px; left:650px; padding:10px 20px;"
-class="groß" onclick="window.location.href='/falsch'">weiter</button> 
-
-<button style="position:absolute; bottom:675px; left:50px; padding:10px 20px;"
-class="mittel" onclick="window.location.href='/falsch'">weiter</button> 
-
-<!--Button mit Route-->
-<button style="position:absolute; bottom:725px; left:200px; padding:10px 20px;"
-class="klein" onclick="window.location.href='{{ url_for("richtig") }}'">
-    weiter, dui fsajlkfdjsdfss
+<!-- RICHTIGER Button (gut versteckt 😄) -->
+<button onclick="window.location.href='/richtig'" 
+style="position:absolute; bottom:720px; left:1100px;">
+weiter
 </button>
 
 </body>
-
 </html>

@@ -1,0 +1,248 @@
+<!DOCTYPE html>
+<html lang="de">
+<head>
+<meta charset="UTF-8">
+<title>Spiel</title>
+
+<style>
+/* Schriftarten */
+@font-face {
+  font-family: 'TastyCheese';
+  src: url('fonts/tastycheese-bitmaps.otf') format('opentype');
+}
+@font-face {
+  font-family: 'NewCheese';
+  src: url('fonts/New Cheese Font/NewCheese.otf') format('opentype');
+}
+
+/* Body */
+body {
+  margin: 0;
+  height: 100vh;
+  background: linear-gradient(to right, #000000, #24153e);
+  overflow: visible;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  font-family: Arial, sans-serif;
+}
+
+/* Container */
+.container {
+  text-align: center;
+  width: 100%;
+  height: 100vh;
+  background: radial-gradient(circle at center, 
+    rgba(255,255,200,0.9) 0%, 
+    rgba(255,255,200,0.4) 20%, 
+    rgba(0,0,0,0.9) 70%);
+  background-color: hsla(0, 0%, 100%, 0.068);        
+  padding: 40px;
+  border-radius: 10px;    
+  box-shadow: 0 15px 30px rgb(255, 255, 255);
+}
+
+/* LOGIN Titel */
+h2 {
+  font-family: 'TastyCheese';
+  letter-spacing: -1px;
+  font-weight: bold;
+  font-size: 55px;
+  transform: scale(1.8);
+  position: absolute;
+  top: 220px;
+  right: 755px;
+}
+
+/* Login-Felder Container */
+.login-fields {
+  position: absolute;
+  top: 360px;
+  right: 679px;
+  display: flex;
+  flex-direction: column;
+  gap: 25px;
+}
+
+/* Form-Gruppe */
+.form-group {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+}
+
+/* Labels */
+label {
+  font-family: 'NewCheese';
+  color: #5a4a00;
+  width: 140px;
+  text-align: left;
+}
+
+/* Käse Input */
+.cheese-input {
+  background: linear-gradient(145deg, #ffd84d, #ffcc00);
+  border: none;
+  border-radius: 15px;
+  padding: 10px 15px;
+  color: #5a4a00;
+  font-weight: bold;
+  width: 120px;
+  box-shadow: inset -3px -3px 6px rgba(255,255,255,0.4),
+              inset 3px 3px 6px rgba(0,0,0,0.2);
+  position: relative;
+}
+
+/* Placeholder Farbe */
+.cheese-input::placeholder {
+    font-size: 10px;
+  color: #8a6f00;
+}
+
+/* Input Wrapper für Käseloch */
+.input-wrapper {
+  position: relative;
+}
+
+/* Käseloch */
+.input-wrapper::before {
+  content: "";
+  position: absolute;
+  width: 12px;
+  height: 12px;
+  background: #e6b800;
+  border-radius: 50%;
+  top: 5px;
+  right: 10px;
+}
+
+/* Sichtbarkeit Toggle Icon */
+.toggle-password {
+  position: absolute;
+  right: 5px;
+  top: 50%;
+  transform: translateY(-50%);
+  cursor: pointer;
+  font-size: 14px;
+  color: #5a4a00;
+  user-select: none;
+}
+
+/* Käse Button */
+.cheese-button {
+  position: absolute;
+  top: 550px;
+  right: 675px;
+  background: linear-gradient(145deg, #ffd84d, #ffcc00);
+  border: none;
+  padding: 20px 50px;
+  font-size: 20px;
+  font-family: 'NewCheese';
+  font-weight: bold;
+  color: #5a4a00;
+  border-radius: 20px;
+  cursor: pointer;
+  overflow: hidden;
+}
+
+.cheese-text {
+  position: relative;
+  z-index: 2;
+}
+
+.cheese-button::before,
+.cheese-button::after {
+  content: "";
+  position: absolute;
+  background: #e6b800;
+  border-radius: 50%;
+}
+
+.cheese-button::before {
+  width: 25px;
+  height: 25px;
+  top: 10px;
+  left: 20px;
+}
+
+.cheese-button::after {
+  width: 15px;
+  height: 15px;
+  bottom: 10px;
+  right: 25px;
+}
+
+/* Login-link */
+a {
+  font-family: 'NewCheese';
+  font-size: 13px;
+  position: absolute;
+  top: 594px;
+  right: 885px;
+  transform: translateX(-50%);
+  color: rgb(167, 124, 22);
+  /*text-decoration: none;*/
+  z-index: 10;
+}
+
+</style>
+</head>
+
+<body>
+<img src="ratte.png" alt="Sticker" style="position: absolute; top: 70px; right: 210px; width: 800px;">
+
+<div class="container">
+
+  <h2>LOGIN:</h2>
+
+  <div class="login-fields">
+
+    <div class="form-group">
+      <label>Benutzername:</label>
+      <div class="input-wrapper">
+        <input class="cheese-input" type="text" placeholder="Name">
+      </div>
+    </div>
+
+    <div class="form-group">
+      <label>Passwort:</label>
+      <div class="input-wrapper">
+        <input class="cheese-input password-field" type="password" placeholder="Passwort">
+        <span class="toggle-password">👁️</span>
+      </div>
+    </div>
+
+    <div class="form-group">
+      <label>Passwort wiederholen:</label>
+      <div class="input-wrapper">
+        <input class="cheese-input password-field" type="password" placeholder="Passwort wiederholen">
+        <span class="toggle-password">👁️</span>
+      </div>
+    </div>
+
+  </div>
+
+  <a href="Anmeldung.html">Login</a>
+
+  <button class="cheese-button">
+    <span class="cheese-text">Weiter</span>
+  </button>
+
+</div>
+
+<script>
+// Passwort sichtbar machen
+document.querySelectorAll('.toggle-password').forEach(function(toggle){
+  toggle.addEventListener('click', function(){
+    const input = this.previousElementSibling;
+    if(input.type === "password"){
+      input.type = "text";
+    } else {
+      input.type = "password";
+    }
+  });
+});
+</script>
+
+</body>
+</html>
