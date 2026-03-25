@@ -8,15 +8,6 @@
 
 <!--Verschiedene Größen für die Buttons festlegen-->
 <style> 
-@font-face {
-            font-family: 'TastyCheese';
-            src: url('fonts/tastycheese-bitmaps.otf') format('opentype');
-            }
-
-         @font-face {
-            font-family: 'NewCheese';
-            src: url('fonts/New Cheese Font/NewCheese.otf') format('opentype');
-            }
 /*Kleine Buttons*/
 .klein{padding: 5px 10px; font-size: 12px;}
 
@@ -26,108 +17,7 @@
 /*Große Buttons*/
 .groß{padding: 20px 40px; font-size: 20px;}
 
-<<<<<<< HEAD
 /*Design für die Buttons*/
-=======
-body {
-margin: 0;
-height: 100vh;
- background: radial-gradient(circle at center, 
-            rgba(255,255,200,0.9) 0%, 
-            rgba(255,255,200,0.4) 20%, 
-            rgba(0,0,0,0.9) 70%);
-            background-color:hsla(0, 0%, 100%, 0.068);
-overflow: hidden;
-/*cursor: none; /*normalen Cursor ausblenden */
-display: flex;
-justify-content: center;   /* horizontal zentrieren */
-align-items: center;       /* vertikal zentrieren */
-height: 100vh;             /* ganze Bildschirmhöhe */
-font-family: Aria l, sans-serif;
-            }
->>>>>>> main
-
-     .cheese-button {
-    position: relative;
-    background: linear-gradient(145deg, #ffd84d, #ffcc00);
-    border: none;
-    font-weight: bold;
-    color: #5a4a00;
-    box-shadow: #090909;
-    border-radius: 20px;
-    cursor: pointer;
-    overflow: hidden; /* wichtig für layering */
-  }
-
-  /* Text nach vorne */
-  .cheese-text {
-    position: relative;
-    z-index: 2;
-  }
-
-  /* Käselöcher nach hinten */
-  .cheese-button::before,
-  .cheese-button::after,
-  .hole {
-    z-index: 1;
-  }
-
-  .cheese-button::before,
-  .cheese-button::after {
-    content: "";
-    position: absolute;
-    background: #e6b800;
-    border-radius: 50%;
-    box-shadow: inset 2px 2px 5px rgba(0,0,0,0.2);
-  }
-
-  .cheese-button::before {
-    width: 25px;
-    height: 25px;
-    top: 10px;
-    left: 20px;
-  }
-
-  .cheese-button::after {
-    width: 15px;
-    height: 15px;
-    bottom: 10px;
-    right: 25px;
-  }
-
-  .hole {
-    position: absolute;
-    background: #e6b800;
-    border-radius: 50%;
-    box-shadow: inset 2px 2px 5px rgba(0,0,0,0.2);
-  }
-
-  .hole1 {
-    width: 18px;
-    height: 18px;
-    top: 50%;
-    left: 40%;
-    transform: translate(-50%, -50%);
-  }
-
-  .hole2 {
-    width: 12px;
-    height: 12px;
-    top: 30%;
-    right: 20%;
-  }
-
-  /* Hover Effekt */
-  .cheese-button:hover {
-    transform: scale(1.05) rotate(-1deg);
-  }
-
-  .cheese-button:active {
-    transform: scale(0.95);
-    box-shadow: inset 5px 5px 10px rgba(0,0,0,0.3);
-  }
-
-
 
 </style>
 
@@ -166,7 +56,6 @@ function falsch() {
 
 <body>
 
-<<<<<<< HEAD
 <!--Class für die Fehlermeldung-->
 <div class="container">
 <p id="meldung" class="meldung"></p>
@@ -185,31 +74,6 @@ class="klein" onclick="window.location.href='/falsch'">weiter</button>
 
 <button style="position:absolute; bottom:100px; left:850px; padding:10px 20px;"
 class="mittel" onclick="window.location.href='/falsch'">weiter</button>
-=======
-<h2
-style="font-family: 'TastyCheese';
-font-size: 40px;
- letter-spacing: -1px;
- transform: scale(1.8, 1.8);"
->Finde den richtigen Button!</h2>
-
-<!--Jeder Button bekommt eine individuelle Position und Größe (klein, mittel, groß)-->
-<button class="cheese-button klein"
-    style="position:absolute; bottom:50px; left:700px;
-    font-family: 'NewCheese';">
-    <span class="cheese-text">Weiter</span>
-    <span class="hole hole1"></span>
-    <span class="hole hole2"></span>
-
-<button class="cheese-button mittel"
-    style="position:absolute; bottom:100px; left:850px; padding:10px 20px;
-    font-family: 'NewCheese';">
-    <span class="cheese-text">Weiter</span>
-    <span class="hole hole1"></span>
-    <span class="hole hole2"></span>
-
-
->>>>>>> main
 
 <button style="position:absolute; bottom:150px; left:500px; padding:10px 20px;"
 class="groß" onclick="window.location.href='/falsch'">weiter</button>
@@ -290,8 +154,10 @@ class="groß" onclick="window.location.href='/falsch'">weiter</button>
 class="mittel" onclick="window.location.href='/falsch'">weiter</button> 
 
 <!--Button mit Route-->
-<button style="position:absolute; bottom:725px; left:200px; padding:10px 20px;" 
-class="klein" onclick="window.location.href='/richtig'">weiter</button> 
+<button style="position:absolute; bottom:725px; left:200px; padding:10px 20px;"
+class="klein" onclick="window.location.href='{{ url_for("richtig") }}'">
+    weiter, dui fsajlkfdjsdfss
+</button>
 
 </body>
 
