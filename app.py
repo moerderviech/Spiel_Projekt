@@ -1,18 +1,24 @@
 # app.py ist die zentrale Datei die Flask braucht um den Webserver zu starten. 
 
+# Flask importieren 
 from flask import Flask, render_template, redirect, url_for, request
 
+# SQL importieren 
 import sqlite3
 
+# Bildschirm leeren
 import os
 
+# Passwort verbergen
 from werkzeug.security import generate_password_hash, check_password_hash
  
+# Flask starten
 app = Flask(__name__)
- 
+
+# Link zur Datenbank 
 DB_NAME = os.path.join(os.path.dirname(os.path.abspath(__file__)), "users.db")
  
- 
+# Verbindung zur Datenbank herstellen
 def get_db():
 
     conn = sqlite3.connect(DB_NAME)
@@ -21,35 +27,35 @@ def get_db():
 
     return conn
  
- 
+# Route zu Level 1
 @app.route("/level1", methods=["GET", "POST"])
 
 def level1():
 
     return render_template("Level1.html")
  
- 
+# Route zu Level 2
 @app.route("/level2", methods=["GET", "POST"])
 
 def level2():
 
     return render_template("Level2.html")
  
- 
+# Route zu Level 3 
 @app.route("/level3", methods=["GET", "POST"])
 
 def level3():
 
     return render_template("Level3.html")
  
- 
+# Route zu Level 4
 @app.route("/level4", methods=["GET", "POST"])
 
 def level4():
 
     return render_template("Level4.html")
  
- 
+# Route zum Start-Menue
 @app.route("/start", methods=["GET", "POST"])
 
 def start():
