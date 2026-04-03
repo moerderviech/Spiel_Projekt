@@ -38,8 +38,16 @@ def level1():
 @app.route("/level2", methods=["GET", "POST"])
 
 def level2():
+    if request.method == "POST":
+        wert = int(request.form["regler"])
+        if wert == 67:
+            return redirect(url_for("level3"))
+        else:
+            return render_template("Level2.html", fehler="Falscher Wert!")
+    return render_template("Level2.html")
 
     return render_template("Level2.html")
+
  
 # Route zu Level 3 
 @app.route("/level3", methods=["GET", "POST"])
@@ -54,6 +62,22 @@ def level3():
 def level4():
 
     return render_template("Level4.html")
+
+# Route zu Level 5
+@app.route("/level5", methods=["GET", "POST"])
+def level5():
+    if request.method == "POST":
+        buchstaben = request.form.getlist("buchstabe")
+ 
+        # Wort zusammenbauen + Case ignorieren
+        wort = "".join(buchstaben).upper()
+ 
+        if wort == "BERNDSCHOBER":
+            return redirect(url_for("level6"))
+        else:
+            return render_template("Level5.html", fehler="Falsch!")
+ 
+    return render_template("Level5.html")
  
 # Route zum Start-Menue
 @app.route("/start", methods=["GET", "POST"])
@@ -130,6 +154,8 @@ def registrierung():
             except sqlite3.IntegrityError:
 
                 fehler = "Benutzername existiert bereits."
+
+                conn.close();
  
             except sqlite3.Error:
 

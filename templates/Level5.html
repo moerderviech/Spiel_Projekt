@@ -1,50 +1,173 @@
 <!DOCTYPE html>
-<html lang="de"> 
+<html lang="de">
 <meta charset="UTF-8">
-
+ 
 <head>
-
 <title>Level 5</title>
+ 
+    <style>
 
-<style>
-    body {
-margin: 0;
-height: 100vh;
-background: linear-gradient(to right, #fffeff, #a4e1f1);
-overflow: hidden;
-display: flex;
-justify-content: center;   /* horizontal zentrieren */
-align-items: center;       /* vertikal zentrieren */
-/*height: 100vh;             /* ganze Bildschirmhöhe */
-font-family: Aria l, sans-serif;
+        body {
+
+            margin: 0;
+
+            height: 100vh;
+
+            background: linear-gradient(to right, #fffeff, #a4e1f1);
+
+            display: flex;
+
+            justify-content: center;
+
+            align-items: center;
+
+            font-family: Arial, sans-serif;
+
+        }
+ 
+        .container {
+
+            text-align: center;
+
+        }
+ 
+        /* 2x2 Grid für Bilder */
+
+        .bilder-grid {
+
+            display: grid;
+
+            grid-template-columns: repeat(2, 150px);
+
+            gap: 10px;
+
+            justify-content: center;
+
+            margin-bottom: 30px;
+
+        }
+ 
+        .bilder-grid img {
+
+            width: 150px;
+
+            height: 150px;
+
+            object-fit: cover;
+
+            border: 2px solid black;
+
+            border-radius: 10px;
+
+        }
+ 
+        /* Eingabefelder */
+
+        input[type="text"] {
+
+            width: 35px;
+
+            height: 35px;
+
+            text-align: center;
+
+            font-size: 20px;
+
+            margin: 2px;
+
+        }
+ 
+        button {
+
+            margin-top: 15px;
+
+            padding: 10px 20px;
+
+            font-size: 16px;
+
+            cursor: pointer;
+
+        }
+ 
+        .fehler {
+
+            color: red;
+
+            margin-top: 10px;
+
         }
 </style>
-
 </head>
-
+ 
 <body>
+ 
+<div class="container">
+ 
+    <h1>Finde das richtige Wort:</h1>
+ 
+    <form method="POST">
+ 
+        <!--Bilder -->
+<div class="bilder-grid">
+<img src="{{ url_for('static', filename='bild_1.jpg') }}">
+<img src="{{ url_for('static', filename='bild_2.jpg') }}">
+<img src="{{ url_for('static', filename='bild_3.jpg') }}">
+<img src="{{ url_for('static', filename='bild_4.jpg') }}">
+</div>
+ 
+        <!--Eingabefelder -->
+<div>
+<input type="text" name="buchstabe" maxlength="1">
+<input type="text" name="buchstabe" maxlength="1">
+<input type="text" name="buchstabe" maxlength="1">
+<input type="text" name="buchstabe" maxlength="1">
+<input type="text" name="buchstabe" maxlength="1">
+ 
+            <br><br>
+ 
+            <input type="text" name="buchstabe" maxlength="1">
+<input type="text" name="buchstabe" maxlength="1">
+<input type="text" name="buchstabe" maxlength="1">
+<input type="text" name="buchstabe" maxlength="1">
+<input type="text" name="buchstabe" maxlength="1">
+<input type="text" name="buchstabe" maxlength="1">
+<input type="text" name="buchstabe" maxlength="1">
+</div>
+ 
+        <!--Button -->
+<button type="submit">Lösung prüfen</button>
+ 
+    </form>
+ 
+    <!--Fehlermeldung -->
 
-<center>
+    {% if fehler %}
+<p class="fehler">{{ fehler }}</p>
 
-<h1>Finde das richtige Wort:</h1>
+    {% endif %}
+ 
+</div>
+ 
+<!--Automatisch weiterspringen -->
+<script>
 
-<!--Eingabefelder für das Lösungswort-->
-<input type="text" maxlength="1" size="1">
-<input type="text" maxlength="1" size="1">
-<input type="text" maxlength="1" size="1">
-<input type="text" maxlength="1" size="1">
-<input type="text" maxlength="1" size="1"/> 
-<br> <br>
-<input type="text" maxlength="1" size="1">
-<input type="text" maxlength="1" size="1">
-<input type="text" maxlength="1" size="1">
-<input type="text" maxlength="1" size="1">
-<input type="text" maxlength="1" size="1">
-<input type="text" maxlength="1" size="1">
-<input type="text" maxlength="1" size="1"/>
+    const inputs = document.querySelectorAll('input[name="buchstabe"]');
+ 
+    inputs.forEach((input, index) => {
 
-</center>
+        input.addEventListener("input", () => {
 
+            if (input.value.length === 1 && index < inputs.length - 1) {
 
+                inputs[index + 1].focus();
 
+            }
+
+        });
+
+    });
+</script>
+ 
 </body>
+</html>
+ 

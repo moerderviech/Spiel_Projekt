@@ -1,48 +1,51 @@
 <!DOCTYPE html>
-<html lang="de"> 
+<html lang="de">
 <meta charset="UTF-8">
-
+ 
 <head>
-
 <title>Level 2</title>
-
-<style>
-
-body {
-margin: 0;
-height: 100vh;
-background: linear-gradient(to right, #fffeff, #a4e1f1);
-overflow: hidden;
-display: flex;
-justify-content: center;   /* horizontal zentrieren */
-align-items: center;       /* vertikal zentrieren */
-/*height: 100vh;             /* ganze Bildschirmhöhe */
-font-family: Aria l, sans-serif;
+ 
+    <style>
+        body {
+            margin: 0;
+            height: 100vh;
+            background: linear-gradient(to right, #fffeff, #a4e1f1);
+            overflow: hidden;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            font-family: Arial, sans-serif;
         }
-
 </style>
-
 </head>
-
+ 
 <body>
-
-<center>
+ 
+    <center>
 <h1 style="border: 2px solid black; padding: 15px;">Stelle die richtige Zahl ein!</h1>
-
-<!--Regler von 1-100, steht anfangs auf 50-->
-<input type="range" min="1" max="100" value="50" style="margin-top:20px;">
-<p>Wert: <span id="wert">50</span></p>
-
-<!--Aktuellen Wert anzeigen-->
-<script>
-const regler = document.getElementById("regler");
-const wert = document.getElementById("wert");
-
-regler.oninput = function() {
-  wert.textContent = this.value;
-}
-</script>
-
+ 
+        <form method="POST">
+<!-- Regler -->
+<input type="range" id="regler" name="regler" min="1" max="100" value="50" style="margin-top:20px;">
+ 
+            <p>Wert: <span id="wert">50</span></p>
+ 
+            <button type="submit">Prüfen</button>
+</form>
+ 
+        {% if fehler %}
+<p style="color:red;">{{ fehler }}</p>
+        {% endif %}
 </center>
-
+ 
+    <script>
+        const regler = document.getElementById("regler");
+        const wert = document.getElementById("wert");
+ 
+        regler.oninput = function () {
+            wert.textContent = this.value;
+        }
+</script>
+ 
 </body>
+</html>
