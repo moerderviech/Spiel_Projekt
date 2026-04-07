@@ -19,12 +19,12 @@ def init_db():
         cursor.executescript(sql_script)
         conn.commit()
  
-        print("✅ Datenbank erfolgreich erstellt aus SQL-Datei!")
+        print("Datenbank erfolgreich erstellt aus SQL-Datei!")
  
     except FileNotFoundError:
-        print(f"❌ SQL-Datei '{SQL_FILE}' nicht gefunden!")
+        print(f"SQL-Datei '{SQL_FILE}' nicht gefunden!")
     except sqlite3.Error as e:
-        print("❌ SQLite Fehler:", e)
+        print("SQLite Fehler:", e)
     finally:
         conn.close()
  

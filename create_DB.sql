@@ -7,7 +7,5 @@ CREATE TABLE IF NOT EXISTS users (
     password TEXT NOT NULL
 );
 
--- Beispiel-Nutzer einfügen (Passwort im Klartext nur zum Testen)
-INSERT INTO users (username, password) VALUES 
-('alice', 'password123'),
-('bob', 'geheim');
+-- Benutzername: testnutzer
+-- Passwort: test
