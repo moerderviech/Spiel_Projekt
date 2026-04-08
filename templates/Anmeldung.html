@@ -2,11 +2,12 @@
 <html lang="de">
 <head>
 <meta charset="UTF-8">
-<title>Spiel</title>
+
+<title>Anmeldung</title>
 
 <style>
 
-/* ===== Schriftarten ===== */
+/*Schriftarten*/
 @font-face {
   font-family: 'TastyCheese';
   src: url('fonts/tastycheese-bitmaps.otf') format('opentype');
@@ -17,7 +18,7 @@
   src: url('fonts/New Cheese Font/NewCheese.otf') format('opentype');
 }
 
-/* ===== Hintergrund / Body ===== */
+/*Hintergrund / Body*/
 body {
   margin: 0;
   height: 100vh;
@@ -28,7 +29,7 @@ body {
   font-family: Arial, sans-serif;
 }
 
-/* ===== Hauptcontainer ===== */
+/*Hauptcontainer*/
 .container {
   text-align: center;
   width: 100%;
@@ -42,7 +43,7 @@ body {
   box-shadow: 0 15px 30px rgb(255, 255, 255); 
 }
 
-/* ===== Titel ===== */
+/*Titel*/
 h2 {
   font-family: 'TastyCheese';
   font-size: 60px;
@@ -51,7 +52,7 @@ h2 {
   right: 748px;
 }
 
-/* ===== Login-Felder ===== */
+/*Login-Felder*/
 .login-fields {
   position: absolute;
   top: 375px;
@@ -61,7 +62,7 @@ h2 {
   gap: 40px;
 }
 
-/* ===== Label + Input ===== */
+/*Label + Input*/
 .form-group {
   display: flex;
   align-items: center;
@@ -74,7 +75,7 @@ label {
   width: 140px;
 }
 
-/* ===== Eingabefelder ===== */
+/*Eingabefelder*/
 .cheese-input {
   background: linear-gradient(145deg, #ffd84d, #ffcc00);
   border: none;
@@ -85,7 +86,7 @@ label {
   width: 100px;
 }
 
-/* ===== Button ===== */
+/*Button*/
 .cheese-button {
   position: absolute;
   top: 550px;
@@ -99,7 +100,7 @@ label {
   cursor: pointer;
 }
 
-/* ===== Registrieren-Link ===== */
+/*Link zur Registrierung*/
 a {
   font-family: 'NewCheese';
   font-size: 13px;
@@ -110,31 +111,37 @@ a {
 }
 
 </style>
+
 </head>
 
 <body>
 
-<!-- Bild (optional Deko) -->
+<!--Bild Ratte-->
 <img src="ratte.png" alt="Sticker"
      style="position: absolute; top: 70px; right: 210px; width: 800px;">
 
 <div class="container">
 
   <h2>LOGIN:</h2>
+  <br> <br> <br>
 
-  <!-- ========================= -->
+  <!--Fehlermeldung anzeigen wenn User falsche Anmeldedaten eingibt-->
+{% if fehler %}
+  <p style="color: red; font-weight: bold; position: absolute; top: 300px; right: 700px;">
+    {{ fehler }}
+  </p>
+{% endif %}
+
   <!-- FORMULAR START -->
   <!-- Alles innerhalb dieses Formulars wird an Flask gesendet -->
-  <!-- ========================= -->
   <form method="POST" action="{{ url_for('anmeldung') }}">
 
     <div class="login-fields">
 
-      <!-- Benutzername -->
+      <!--Benutzername-->
       <div class="form-group">
         <label>Benutzername:</label>
         <div class="input-wrapper">
-          <!-- name="username" ist EXTREM wichtig für Flask -->
           <input class="cheese-input" 
                  type="text" 
                  name="username" 
@@ -143,11 +150,10 @@ a {
         </div>
       </div>
 
-      <!-- Passwort -->
+      <!--Passwort-->
       <div class="form-group">
         <label>Passwort:</label>
         <div class="input-wrapper">
-          <!-- name="password" ebenfalls wichtig -->
           <input class="cheese-input" 
                  type="password" 
                  name="password" 
@@ -158,16 +164,15 @@ a {
 
     </div>
 
-    <!-- Login Button -->
-    <!-- type="submit" sorgt dafür, dass das Formular abgeschickt wird -->
+    <!--Login Button-->
+    <!--type="submit" sorgt dafür, dass das Formular abgeschickt wird-->
     <button class="cheese-button" type="submit">
       <span class="cheese-text">Weiter</span>
     </button>
 
   </form>
-  <!-- ========================= -->
   <!-- FORMULAR ENDE -->
-  <!-- ========================= -->
+
 
 
   <!-- Link zur Registrierung -->

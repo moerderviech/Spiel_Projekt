@@ -73,7 +73,7 @@ def level5():
         wort = "".join(buchstaben).upper()
  
         if wort == "BERNDSCHOBER":
-            return redirect(url_for("level6"))
+            return redirect(url_for("start"))
         else:
             return render_template("Level5.html", fehler="Falsch!")
  
