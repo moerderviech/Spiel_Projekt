@@ -40,10 +40,13 @@ def level1():
 @app.route("/level2", methods=["GET", "POST"])
 
 def level2():
+    # Wert wird übermittelt wenn Nutzer auf "Prüfen" klickt
     if request.method == "POST":
         wert = int(request.form["regler"])
+        # Nutzer landet in Level 3 wenn der Wert richtig ist
         if wert == 67:
             return redirect(url_for("level3"))
+        # Fehlermehldung wenn Nutzer falschen Wert eingegeben hat und Nutzer bleibt in Level 2
         else:
             return render_template("Level2.html", fehler="Falscher Wert!")
     return render_template("Level2.html")
