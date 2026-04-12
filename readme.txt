@@ -1,7 +1,20 @@
-Katha:  Level 1 HTML
-        Level 4 HTML
-        Level 5 HTML
-        Python Anbindung für Level 1 
-        
+CHEESE GAME
 
-Sita:   Anmeldung
+Ein interaktives Rätselspiel, bei dem mehrere Level mit unerwarteten Lösungen gelöst werden müssen. 
+Die Spielenden lernen die Mechaniken durch Ausprobieren und müssen ihre Denkweise hinterfragen. 
+Ziel ist es, alle Level mit möglichst wenigen Fehlversuchen zu schaffen und in der Rangliste weit oben zu landen.
+
+
+Arbeitsaufteilung:
+
+Katha:  Level 1 (Finde den richtigen Button)            
+        Level 2 (Stelle die richtige Zahl ein)
+        Level 5 (4 Bilder 1 Wort)
+        Registrierung     
+        Anmeldung  
+
+Sita:   Highscore
+        Level 3
+        Level 4
+
+         
