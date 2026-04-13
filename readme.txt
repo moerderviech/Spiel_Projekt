@@ -10,11 +10,13 @@ Arbeitsaufteilung:
 Katha:  Level 1 (Finde den richtigen Button)            
         Level 2 (Stelle die richtige Zahl ein)
         Level 5 (4 Bilder 1 Wort)
-        Registrierung     
-        Anmeldung 
+        Registrierung (Logik)   
+        Anmeldung (Logik)
+        Design
 
 Sita:   Highscore
         Level 3
         Level 4
+        Design
 
          
