@@ -22,12 +22,84 @@ body {
   top: 50%;
   left: 50%;
   transform: translate(-50%, -50%);
-  background: white;
-  padding: 30px;
-  border: 3px solid black;
-  border-radius: 10px;
-  z-index: 1000;
+  
+  background: linear-gradient(145deg, #ffd84d, #ffcc00);
+  color: #5a4a00;
+
+  padding: 30px 40px;
+  border-radius: 20px;
+  box-shadow: 0 10px 25px rgba(0,0,0,0.4);
+
   text-align: center;
+  font-weight: bold;
+
+  z-index: 1000;
+}
+
+#popup::before,
+#popup::after {
+  content: "";
+  position: absolute;
+  background: #e6b800;
+  border-radius: 50%;
+}
+
+#popup::before {
+  width: 20px;
+  height: 20px;
+  top: 10px;
+  left: 15px;
+}
+
+#popup::after {
+  width: 12px;
+  height: 12px;
+  bottom: 10px;
+  right: 20px;
+}
+
+.cheese-button {
+  background: linear-gradient(145deg, #ffd84d, #ffcc00);
+  border: none;
+  padding: 15px 30px;
+  font-size: 16px;
+  font-family: Arial, sans-serif;
+  font-weight: bold;
+  color: #5a4a00;
+  border-radius: 20px;
+  cursor: pointer;
+  position: absolute;
+}
+
+.cheese-button:hover {
+  transform: scale(1.05) rotate(-1deg);
+}
+
+.cheese-button:active {
+  transform: scale(0.95);
+  box-shadow: inset 5px 5px 10px rgba(0,0,0,0.3);
+}
+
+.cheese-button::before,
+.cheese-button::after {
+  content: "";
+  position: absolute;
+  background: #e6b800;
+  border-radius: 50%;
+}
+
+.cheese-button::before {
+  width: 15px;
+  height: 15px;
+  top: 5px;
+  left: 10px;
+}
+
+.cheese-button::after {
+  width: 10px;
+  height: 10px;
+  bottom: 5px;
+  right: 10px;
 }
 </style>
 
@@ -35,7 +107,7 @@ body {
 
 <body>
 
-<h1 style="position:absolute; top:40px; left:50%; transform:translateX(-50%);">
+<h1 style="position:absolute; top:40px; left:50%; transform:translateX(-50%); font-family: 'NewCheese';">
 Finde den richtigen Button!
 </h1>
 
@@ -46,25 +118,25 @@ Finde den richtigen Button!
 </div>
 
 <!--falsche Buttons-->
-<button onclick="falsch()" style="position:absolute; bottom:50px; left:100px;">nein, hier!</button>
-<button onclick="falsch()" style="position:absolute; bottom:120px; left:300px;">weiter</button>
-<button onclick="falsch()" style="position:absolute; bottom:200px; left:500px;">weiter</button>
-<button onclick="falsch()" style="position:absolute; bottom:300px; left:700px;">weiter</button>
-<button onclick="falsch()" style="position:absolute; bottom:400px; left:900px;">weiter</button>
-<button onclick="falsch()" style="position:absolute; bottom:500px; left:200px;">weiter</button>
-<button onclick="falsch()" style="position:absolute; bottom:600px; left:400px;">weiter</button>
-<button onclick="falsch()" style="position:absolute; bottom:150px; left:800px;">weiter</button>
-<button onclick="falsch()" style="position:absolute; bottom:250px; left:100px;">weiter</button>
-<button onclick="falsch()" style="position:absolute; bottom:350px; left:300px;">weiter</button>
-<button onclick="falsch()" style="position:absolute; bottom:450px; left:600px;">hier!</button>
-<button onclick="falsch()" style="position:absolute; bottom:550px; left:850px;">weiter</button>
-<button onclick="falsch()" style="position:absolute; bottom:650px; left:150px;">weiter</button>
-<button onclick="falsch()" style="position:absolute; bottom:700px; left:500px;">weiter</button>
-<button onclick="falsch()" style="position:absolute; bottom:100px; left:1000px;">weiter</button>
+<button class="cheese-button" onclick="falsch()" style="bottom:50px; left:100px;">nein, hier!</button>
+<button class="cheese-button" onclick="falsch()" style="bottom:120px; left:300px;">weiter</button>
+<button class="cheese-button" onclick="falsch()" style="bottom:200px; left:500px;">weiter</button>
+<button class="cheese-button" onclick="falsch()" style="bottom:300px; left:700px;">weiter</button>
+<button class="cheese-button" onclick="falsch()" style="bottom:400px; left:900px;">weiter</button>
+<button class="cheese-button" onclick="falsch()" style="bottom:500px; left:200px;">weiter</button>
+<button class="cheese-button" onclick="falsch()" style="bottom:600px; left:400px;">weiter</button>
+<button class="cheese-button" onclick="falsch()" style="bottom:150px; left:800px;">weiter</button>
+<button class="cheese-button" onclick="falsch()" style="bottom:250px; left:100px;">weiter</button>
+<button class="cheese-button" onclick="falsch()" style="bottom:350px; left:300px;">weiter</button>
+<button class="cheese-button" onclick="falsch()" style="bottom:450px; left:600px;">hier!</button>
+<button class="cheese-button" onclick="falsch()" style="bottom:550px; left:850px;">weiter</button>
+<button class="cheese-button" onclick="falsch()" style="bottom:650px; left:150px;">weiter</button>
+<button class="cheese-button" onclick="falsch()" style="bottom:650px; left:500px;">weiter</button>
+<button class="cheese-button" onclick="falsch()" style="bottom:100px; left:1000px;">weiter</button>
 
 <!--RICHTIGER Button-->
-<button id="richtigerButton"
-style="position:absolute; bottom:500px; left:1100px;">
+<button id="richtigerButton" class="cheese-button"
+style="bottom:500px; left:1100px;">
 weiter
 </button>
 

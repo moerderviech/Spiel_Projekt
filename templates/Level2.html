@@ -42,6 +42,7 @@
         {% endif %}
 </center>
  
+
     <script>
         const regler = document.getElementById("regler");
         const wert = document.getElementById("wert");
@@ -49,17 +50,11 @@
         regler.oninput = function () {
             wert.textContent = this.value;
         }
-                
-        let click_count = parseInt( `{{ clicks }}`) || 0;
+        
+        <!-- Click Counter -->
 
-        document.addEventListener("click", function(event)
-        {
-        click_count++;
-         document.getElementById("clicks").value = click_count;
-        })
-
-       
-</script>
+    </script>
  
+
 </body>
 </html>
