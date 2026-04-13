@@ -31,21 +31,6 @@ body {
 }
 </style>
 
-<script>
-function falsch() {
-  let p = document.getElementById("popup");
-  p.style.display = "block";
-
-  setTimeout(() => {
-    p.style.display = "none";
-  }, 1500);
-}
-
-function closePopup() {
-  document.getElementById("popup").style.display = "none";
-}
-</script>
-
 </head>
 
 <body>
@@ -78,10 +63,36 @@ Finde den richtigen Button!
 <button onclick="falsch()" style="position:absolute; bottom:100px; left:1000px;">weiter</button>
 
 <!--RICHTIGER Button-->
-<button onclick="window.location.href='/richtig'" 
-style="position:absolute; bottom:720px; left:1100px;">
+<button id="richtigerButton"
+style="position:absolute; bottom:500px; left:1100px;">
 weiter
 </button>
 
+<script>
+  function falsch() {
+  let p = document.getElementById("popup");
+  p.style.display = "block";
+
+  setTimeout(() => {
+    p.style.display = "none";
+  }, 1500);
+}
+
+function closePopup() {
+  document.getElementById("popup").style.display = "none";
+}
+  
+let click_count = 0;
+
+document.addEventListener("click", function(event)
+{
+  click_count++;
+})
+
+document.getElementById("richtigerButton").addEventListener("click", function(e) 
+{
+  window.location.href = `/richtig?clicks=${click_count}`
+})
+</script>
 </body>
 </html>

@@ -7,5 +7,13 @@ CREATE TABLE IF NOT EXISTS users (
     password TEXT NOT NULL
 );
 
+-- Highscore Tabelle erstellen
+
+CREATE TABLE IF NOT EXISTS highscores (
+    id INTEGER PRIMARY KEY AUTOINCREMENT,
+    user_id INTEGER NOT NULL,
+    highscore INTEGER NOT NULL UNIQUE
+)
+
 -- Benutzername: testnutzer
 -- Passwort: test
