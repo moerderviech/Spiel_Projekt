@@ -93,6 +93,7 @@
 </head>
  
 <body>
+<<<<<<< HEAD
  
 <div class="container">
  
@@ -118,6 +119,22 @@
 <input type="text" name="buchstabe" maxlength="1">
 <input type="text" name="buchstabe" maxlength="1">
 <input type="text" name="buchstabe" maxlength="1">
+=======
+
+
+<script>
+
+      
+  let click_count = parseInt( `{{ clicks }}`) || 0;
+
+  document.addEventListener("click", function(event)
+  {
+  click_count++;
+    document.getElementById("clicks").value = click_count;
+  })
+
+</script>
+>>>>>>> f14abd83ca1c276e4dc124815e63860896099091
 
  
 <br><br>

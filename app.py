@@ -1,13 +1,16 @@
 # app.py ist die zentrale Datei die Flask braucht um den Webserver zu starten. 
 
 # Flask importieren 
-from flask import Flask, render_template, redirect, url_for, request
+from flask import Flask, render_template, redirect, url_for, request, session
 
 # SQL importieren 
 import sqlite3
 
 # Bildschirm leeren
 import os
+
+#Datenbankfunktionen importieren
+import datenbank
 
 # Passwort verbergen
 from werkzeug.security import generate_password_hash, check_password_hash
@@ -17,6 +20,7 @@ app = Flask(__name__)
 
 # Link zur Datenbank 
 DB_NAME = os.path.join(os.path.dirname(os.path.abspath(__file__)), "users.db")
+
  
 # Verbindung zur Datenbank herstellen
 def get_db():
@@ -43,9 +47,10 @@ def level2():
     # Wert wird übermittelt wenn Nutzer auf "Prüfen" klickt
     if request.method == "POST":
         wert = int(request.form["regler"])
+        click_count = int(request.form["clicks"])
         # Nutzer landet in Level 3 wenn der Wert richtig ist
         if wert == 67:
-            return redirect(url_for("level3"))
+            return render_template("Level3.html", clicks=click_count)
         # Fehlermehldung wenn Nutzer falschen Wert eingegeben hat und Nutzer bleibt in Level 2
         else:
             return render_template("Level2.html", fehler="Falscher Wert!")
@@ -97,7 +102,17 @@ def level5():
         wort = "".join(buchstaben).upper()
  
         if wort == "BERNDSCHOBER":
-            return redirect(url_for("start"))
+            #Klicks des Benutzers abrufen
+            click_count = request.form.get("clicks")
+
+            #Klicks als Highscore in DB speichern
+            datenbank.add_highscore(session["username"], int(click_count))
+
+            #Top 10 Highscores aus der DB lesen
+            highscores = datenbank.get_top10_highscores()
+
+            # clicks -> aktueller Score des Users; highscores -> dictionary mit username und highscore
+            return render_template("Highscore.html", clicks=click_count, highscores=highscores)
         else:
             return render_template("Level5.html", fehler="Falsch!")
  
@@ -107,15 +122,18 @@ def level5():
 @app.route("/start", methods=["GET", "POST"])
 
 def start():
-
+    
     return render_template("start.html")
  
  
 @app.route("/richtig")
 
 def richtig():
+    click_count = request.args.get("clicks", "")
 
-    return redirect(url_for("level2"))
+    print(click_count)
+
+    return render_template("Level2.html", clicks=click_count)
  
  
 @app.route("/falsch")
@@ -229,6 +247,9 @@ def anmeldung():
 
         except sqlite3.Error:
             fehler = "Datenbankfehler bei der Anmeldung."
+
+    # Username des angemeldeten Users global speichern
+    session["username"] = username
 
     return render_template("Anmeldung.html", fehler=fehler)
 

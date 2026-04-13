@@ -29,8 +29,8 @@
 <input type="range" id="regler" name="regler" min="1" max="100" value="50" style="margin-top:20px;">
  
             <p>Wert: <span id="wert">50</span></p>
- 
             <button type="submit">Prüfen</button>
+            <input type="hidden" name="clicks" id="clicks">
 </form>
  
         {% if fehler %}
@@ -45,6 +45,16 @@
         regler.oninput = function () {
             wert.textContent = this.value;
         }
+                
+        let click_count = parseInt( `{{ clicks }}`) || 0;
+
+        document.addEventListener("click", function(event)
+        {
+        click_count++;
+         document.getElementById("clicks").value = click_count;
+        })
+
+       
 </script>
  
 </body>
