@@ -110,6 +110,7 @@ def registrierung():
 
     fehler = None
 
+
     erfolg = None
  
     if request.method == "POST":
