@@ -48,14 +48,15 @@ def level2():
     if request.method == "POST":
         wert = int(request.form["regler"])
         click_count = int(request.form["clicks"])
+
         # Nutzer landet in Level 3 wenn der Wert richtig ist
         if wert == 67:
             return render_template("Level3.html", clicks=click_count)
+        
         # Fehlermehldung wenn Nutzer falschen Wert eingegeben hat und Nutzer bleibt in Level 2
         else:
             return render_template("Level2.html", fehler="Falscher Wert!")
     return render_template("Level2.html")
-
 
 # Route zu Level 3 
 @app.route("/level3", methods=["GET", "POST"])
@@ -90,7 +91,6 @@ def level4():
                 return render_template("Level4.html", fehler="Falsch!")
     
         return render_template("Level4.html")
-
 
 # Route zu Level 5
 @app.route("/level5", methods=["GET", "POST"])
