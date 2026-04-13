@@ -9,6 +9,12 @@ import sqlite3
 # Bildschirm leeren
 import os
 
+import threading
+
+import webbrowser
+
+import sys
+
 #Datenbankfunktionen importieren
 import datenbank
 
@@ -22,9 +28,18 @@ app = Flask(__name__)
 import os
 app.secret_key = "super_geheimer_test_key_123"
 
-# Link zur Datenbank 
-DB_NAME = os.path.join(os.path.dirname(os.path.abspath(__file__)), "users.db")
+def get_app_dir():
+    if getattr(sys, 'frozen', False):
+        # Wenn als .exe gestartet → Ordner der exe (dist)
+        return os.path.dirname(sys.executable)
+    else:
+        # Normaler Python-Run
+        return os.path.dirname(os.path.abspath(__file__))
+ 
+DB_NAME = os.path.join(get_app_dir(), "users.db")
 
+def open_browser():
+    webbrowser.open("http://127.0.0.1:5000/start")
  
 # Verbindung zur Datenbank herstellen
 def get_db():
@@ -45,24 +60,22 @@ def level1():
  
 
 # Route zu Level 2
-@app.route("/level2", methods=["GET", "POST"])
 
+# Route zu Level 2
+@app.route("/level2", methods=["GET", "POST"])
 def level2():
     # Wert wird übermittelt wenn Nutzer auf "Prüfen" klickt
     if request.method == "POST":
         wert = int(request.form["regler"])
-        #click_count = int(request.form["clicks"])
-
+ 
         # Nutzer landet in Level 3 wenn der Wert richtig ist
         if wert == 67:
-            return render_template("Level3.html")
-        
-            # Mit Click Counter:
-            #return render_template("Level3.html", clicks=click_count)
-
-        # Fehlermehldung wenn Nutzer falschen Wert eingegeben hat und Nutzer bleibt in Level 2
+            return redirect(url_for("level3"))
+ 
+        # Fehlermeldung wenn Nutzer falschen Wert eingegeben hat
         else:
             return render_template("Level2.html", fehler="Falscher Wert!")
+ 
     return render_template("Level2.html")
 
 # Route zu Level 3 
@@ -136,22 +149,8 @@ def start():
     return render_template("start.html")
  
  
-@app.route("/richtig")
 
-def richtig():
-    #click_count = request.args.get("clicks", "")
 
-    #print(click_count)
-
-    #return render_template("Level2.html", clicks=click_count)
-    return render_template("Level2.html")
- 
- 
-@app.route("/falsch")
-
-def falsch():
-
-    return render_template("Level1.html", fehler="falsch")
  
 # Route zur Registrierung
 @app.route("/registrieren", methods=["GET", "POST"])
@@ -257,6 +256,5 @@ def anmeldung():
     return render_template("Anmeldung.html", fehler=fehler)
 
 if __name__ == "__main__":
-
-    app.run(debug=True)
- 
+    threading.Timer(1.2, open_browser).start()
+    app.run(host="127.0.0.1", port=5000, debug=False)

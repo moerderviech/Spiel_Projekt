@@ -20,13 +20,96 @@
             align-items: center;
             font-family: Arial, sans-serif;
             }
+
+            .cheese-textbox {
+  background: linear-gradient(145deg, #ffd84d, #ffcc00);
+  color: #5a4a00;
+
+  padding: 15px 30px;
+  border-radius: 20px;
+
+  font-family: 'NewCheese', Arial, sans-serif;
+  font-weight: bold;
+  font-size: 20px;
+
+  box-shadow: inset -3px -3px 6px rgba(255,255,255,0.4),
+              inset 3px 3px 6px rgba(0,0,0,0.2);
+
+  display: inline-block;
+  position: relative;
+}
+
+/* Käselöcher */
+.cheese-textbox::before,
+.cheese-textbox::after {
+  content: "";
+  position: absolute;
+  background: #e6b800;
+  border-radius: 50%;
+}
+
+.cheese-textbox::before {
+  width: 15px;
+  height: 15px;
+  top: 5px;
+  left: 10px;
+}
+
+.cheese-textbox::after {
+  width: 10px;
+  height: 10px;
+  bottom: 5px;
+  right: 10px;
+}
+
+/* Slider Grund */
+input[type="range"] {
+  -webkit-appearance: none;
+  width: 300px;
+  height: 10px;
+  border-radius: 10px;
+  background: linear-gradient(145deg, #ffd84d, #ffcc00);
+  outline: none;
+}
+
+/* Slider Kreis (Chrome, Edge) */
+input[type="range"]::-webkit-slider-thumb {
+  -webkit-appearance: none;
+  width: 25px;
+  height: 25px;
+  border-radius: 50%;
+  background: #e6b800;
+  cursor: pointer;
+  box-shadow: 0 0 5px rgba(0,0,0,0.5);
+}
+
+/* Slider Kreis (Firefox) */
+input[type="range"]::-moz-range-thumb {
+  width: 25px;
+  height: 25px;
+  border-radius: 50%;
+  background: #e6b800;
+  cursor: pointer;
+}
+
+/* Slider Grund */
+input[type="range"] {
+  -webkit-appearance: none;
+  width: 300px;
+  height: 10px;
+  border-radius: 10px;
+  background: linear-gradient(145deg, #ffd84d, #ffcc00);
+  outline: none;
+}
     </style>
 </head>
  
 <body>
  
     <center>
-<h1 style="border: 2px solid black; padding: 15px;">Stelle die richtige Zahl ein!</h1>
+<h1 class="cheese-textbox">
+  Stelle die richtige Zahl ein!
+</h1>
  
         <form method="POST">
 <!-- Regler -->
