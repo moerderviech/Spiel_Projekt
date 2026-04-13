@@ -56,15 +56,36 @@ def level2():
 @app.route("/level3", methods=["GET", "POST"])
 
 def level3():
-
-    return render_template("Level3.html")
+        if request.method == "POST":
+            buchstaben = request.form.getlist("buchstabe")
+    
+            # Wort zusammenbauen + Case ignorieren
+            wort = "".join(buchstaben).upper()
+    
+            if wort == "JOHANNESKÖPPEL":
+                return redirect(url_for("level4"))
+            else:
+                return render_template("Level3.html", fehler="Falsch!")
+    
+        return render_template("Level3.html")
  
 # Route zu Level 4
 @app.route("/level4", methods=["GET", "POST"])
 
 def level4():
+        if request.method == "POST":
+            buchstaben = request.form.getlist("buchstabe")
+    
+            # Wort zusammenbauen + Case ignorieren
+            wort = "".join(buchstaben).upper()
+    
+            if wort == "JONASMALASSA":
+                return redirect(url_for("level5"))
+            else:
+                return render_template("Level4.html", fehler="Falsch!")
+    
+        return render_template("Level4.html")
 
-    return render_template("Level4.html")
 
 # Route zu Level 5
 @app.route("/level5", methods=["GET", "POST"])
