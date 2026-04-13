@@ -214,16 +214,14 @@ def anmeldung():
 
     # Formular wird verschickt wenn user auf weiter klickt 
     if request.method == "POST":
-
         # Eingaben vom user aus dem Formular holen
         username = request.form.get("username", "").strip()
         password = request.form.get("password", "")
 
         # Prüfen, ob es leere Felder gibt
         if not username or not password:
-            # Wenn ja Fehlermeldung ausgeben 
-            fehler = "Bitte Benutzername und Passwort eingeben."
-            return render_template("Anmeldung.html", fehler=fehler)
+            return render_template("Anmeldung.html",
+                                   fehler="Bitte Benutzername und Passwort eingeben.")
 
         try:
             conn = get_db()
@@ -234,25 +232,18 @@ def anmeldung():
             user = cursor.fetchone()
             conn.close()
 
-            if user:
-                # Passwort prüfen
-                if check_password_hash(user["password"], password):
+            # Passwort prüfen
+            if user and check_password_hash(user["password"], password):
+                session["username"] = username
+                return redirect(url_for("start"))
 
-                    # Zur Startseite wenn Login erfolgreich
-                    return redirect(url_for("start"))
-                else:
-                    fehler = "Benutzername oder Passwort ist falsch."
             else:
                 fehler = "Benutzername oder Passwort ist falsch."
 
         except sqlite3.Error:
             fehler = "Datenbankfehler bei der Anmeldung."
 
-    # Username des angemeldeten Users global speichern
-    session["username"] = username
-
     return render_template("Anmeldung.html", fehler=fehler)
-
 
 if __name__ == "__main__":
 
